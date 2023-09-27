@@ -57,11 +57,12 @@ public class Bank {
 	}
 	
 
-	public void payDividend(int accnum, int sum) {
+	public void payDividend( int accnum, int sum) {
 		for (Account account : accounts) {
 			if (account instanceof SavingAccount ) {
 				SavingAccount cuentaAhorros = (SavingAccount) account; 
-				if (cuentaAhorros.getAccountNumber()== accnum) {
+				if (cuentaAhorros.getAccountNumber()== accnum ) {
+					System.out.println("deposito hecho a la cuenta de ahorros");
 					cuentaAhorros.deposit(sum);
 					
 				}
@@ -69,30 +70,32 @@ public class Bank {
 			if (account instanceof CurrentAccount ) {
 				CurrentAccount cuentaCorriente = (CurrentAccount) account; 
 				if (cuentaCorriente.getAccountNumber()== accnum) {
+					System.out.println("deposito hecho a la cuenta corriente");
 					cuentaCorriente.deposit(sum);
+					
 				}
 			}
 		}
 	}
 
-	public double getBalance(int accnum) {
+	public String getBalance(int accnum) {
 		for (Account account : accounts) {
 			if (account instanceof SavingAccount ) {
 				SavingAccount cuentaAhorros = (SavingAccount) account; 
 				if (cuentaAhorros.getAccountNumber()== accnum) {
 					Account cuenta = cuentaAhorros;
-					return cuenta.getBalance();
+					return Double.toString(cuenta.getBalance());
 				}
 			}
 			if (account instanceof CurrentAccount ) {
 				CurrentAccount cuentaCorriente = (CurrentAccount) account; 
 				if (cuentaCorriente.getAccountNumber()== accnum) {
 					Account cuenta = cuentaCorriente;
-					return cuenta.getBalance();
+					return Double.toString(cuenta.getBalance());
 				}
 			}
 		}
-		return 0;
+		return ("No hay cuenta asociada");
 	}
 
 	public void withdrawAccount(int accnum, int sum) {
@@ -100,15 +103,22 @@ public class Bank {
 			if (account instanceof SavingAccount ) {
 				SavingAccount cuentaAhorros = (SavingAccount) account; 
 				if (cuentaAhorros.getAccountNumber()== accnum) {
+					System.out.println("retiro hecho a la cuenta de ahorros");
 					cuentaAhorros.withdraw(sum);
+					
+					
 				}
 			}
 			if (account instanceof CurrentAccount ) {
 				CurrentAccount cuentaCorriente = (CurrentAccount) account; 
 				if (cuentaCorriente.getAccountNumber()== accnum) {
+					System.out.println("retiro hecho a la cuenta corriente");
 					cuentaCorriente.withdraw(sum);
+					
+					
 				}
 			}
+			
 		}
     }
 
@@ -124,6 +134,5 @@ public class Bank {
 		}
 	}
 
-    public void deposit(int i, int j) {
-    }
+   
 }

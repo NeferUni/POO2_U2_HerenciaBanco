@@ -50,8 +50,12 @@ public static void main(String[] args) {
 		bank.payDividend(3354678, 10);
 		bank.payDividend(3354678, 30);
 		
-		bank.payDividend(3359302, 50);
-		bank.payDividend(3359302, 50);
+		System.out.println("*** Val = "+bank.getBalance(3354678));
+		
+		bank.payDividend(3359302, 10);
+		bank.payDividend(3359302, 10);
+		
+		System.out.println("*** Val = "+bank.getBalance(3359302));
 		
 		bank.payDividend(3379844, 10);
 		bank.payDividend(3379844, 10);
@@ -64,13 +68,17 @@ public static void main(String[] args) {
 		System.out.println("*** Val = "+bank.getBalance(3379844));
 		
 		bank.withdrawAccount(3379844, 15);
+		bank.withdrawAccount(3379844, 15);
 		
 		System.out.println("*** Val = "+bank.getBalance(3379844));
+	
 		
 		bank.sendLetterToOverdraftAccounts();
 
 		bank.closeAccount('C', 3379844);
 		bank.closeAccount('A', 3359302);
+		
+		System.out.println("*** Val = "+bank.getBalance(3379844));
 	
 		// ==================================================
 	
