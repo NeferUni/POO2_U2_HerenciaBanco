@@ -4,11 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bank {
+	private static Bank instance; 
 
 	public List<Account> accounts;
 
 	public Bank() {
 		accounts = new ArrayList<>();
+	}
+
+	public static Bank getInstance() {
+		
+		if(instance==null) {
+			instance = new Bank();
+			System.out.println("Clase instanciada");
+		}
+		return instance;
 	}
 
 	public void openAccount(char letter, int accnum) {
